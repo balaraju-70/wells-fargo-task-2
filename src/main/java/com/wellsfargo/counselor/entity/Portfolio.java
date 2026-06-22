@@ -3,36 +3,24 @@ package com.wellsfargo.counselor.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Security {
+public class Portfolio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long securityId;
-
-    @Column(nullable = false)
-    private String ticker;
+    private long portfolioId;
 
     @Column(nullable = false)
     private String name;
 
-    protected Security() {
+    protected Portfolio() {
     }
 
-    public Security(String ticker, String name) {
-        this.ticker = ticker;
+    public Portfolio(String name) {
         this.name = name;
     }
 
-    public long getSecurityId() {
-        return securityId;
-    }
-
-    public String getTicker() {
-        return ticker;
-    }
-
-    public void setTicker(String ticker) {
-        this.ticker = ticker;
+    public long getPortfolioId() {
+        return portfolioId;
     }
 
     public String getName() {
