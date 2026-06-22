@@ -7,51 +7,39 @@ public class Security {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long securityId;
 
-    @Column
+    @Column(nullable = false)
+    private String ticker;
+
+    @Column(nullable = false)
     private String name;
 
-    @Column
-    private String type;
-
-    @Column
-    private Double price;
-
-    public Security() {}
-
-    public Security(Long id, String name, String type, Double price) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.price = price;
+    protected Security() {
     }
 
-    public Long getId() {
-        return id;
+    public Security(String ticker, String name) {
+        this.ticker = ticker;
+        this.name = name;
+    }
+
+    public long getSecurityId() {
+        return securityId;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 }
